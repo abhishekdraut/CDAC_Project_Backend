@@ -3,6 +3,7 @@ package com.app.invoice.controller;
 import java.util.List;
 
 import javax.net.ssl.SSLEngineResult.Status;
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.invoice.entity.AuthenticateObject;
 import com.app.invoice.entity.User;
 import com.app.invoice.service.UserService;
 
@@ -73,6 +75,23 @@ public class UserController {
 		} catch (Exception e) {
 			System.out.println(e.toString());
 			return new ResponseEntity<String>("Bad Request Something wrong !", HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@PostMapping("/AuthenticateUser")
+	public ResponseEntity<?> authenticateUser(@RequestBody AuthenticateObject body) {
+		try {
+			EntityNotFoundException e = new EntityNotFoundException();
+			User u = userService.authenticateUser(body.getUsername(), body.getPassword());
+			if (u != null) {
+				return new ResponseEntity<User>(u, HttpStatus.OK);
+			}
+			throw e;
+		} catch (EntityNotFoundException e) {
+			return new ResponseEntity<>("Wrong username or password", HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
 		}
 	}
 

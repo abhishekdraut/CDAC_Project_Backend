@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.app.invoice.dao.UserDao;
+import com.app.invoice.entity.AuthenticateObject;
 import com.app.invoice.entity.User;
 
 import net.bytebuddy.implementation.bytecode.Throw;
@@ -75,5 +77,16 @@ public class UserService {
 		user.deleteById(id);
 		return u;
 
+	}
+	
+	public User authenticateUser(String userName,String password) throws EntityNotFoundException {
+		User u=user.authenticateUser(userName,password);
+		if(u!=null) {
+			return u;
+		}
+		else {
+			
+		return null;
+		}
 	}
 }

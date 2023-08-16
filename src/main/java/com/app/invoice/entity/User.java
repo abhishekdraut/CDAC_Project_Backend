@@ -1,9 +1,11 @@
 package com.app.invoice.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import net.bytebuddy.implementation.bind.annotation.Default;
@@ -44,6 +46,7 @@ public class User implements Serializable {
 	private String password;
 	@Column(name = "city",nullable = false)
 	private String city;
+	
 
 	public User() {
 		super();
@@ -150,9 +153,9 @@ public class User implements Serializable {
 		this.isAdmin = isAdmin;
 	}
 
-	public String getPassword() {
-		return password;
-	}
+//	public String getPassword() {
+//		return password;
+//	}
 
 	public void setPassword(String password) {
 		this.password = password;
@@ -166,6 +169,9 @@ public class User implements Serializable {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	
+	
 
 	@Override
 	public String toString() {
