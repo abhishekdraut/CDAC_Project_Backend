@@ -47,6 +47,9 @@ public class User implements Serializable {
 	@Column(name = "city",nullable = false)
 	private String city;
 	
+	@OneToMany(mappedBy = "admin")
+	private List<Client> client;
+
 
 	public User() {
 		super();

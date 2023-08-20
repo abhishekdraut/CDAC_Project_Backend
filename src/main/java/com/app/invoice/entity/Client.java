@@ -38,8 +38,10 @@ public class Client implements Serializable{
 	private String address;
 	@Column(name = "city", nullable = false)
 	private String city;
+	
+	
 
-	@Column(name ="admin",nullable=false)
+	@JoinColumn(name="admin")
 	private int admin;
 	
 	public Client () {
