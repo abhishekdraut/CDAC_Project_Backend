@@ -1,4 +1,4 @@
-package com.app.invoice.entity;
+package com.app.entity;
 
 import java.io.Serializable;
 import java.util.List;

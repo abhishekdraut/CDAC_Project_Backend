@@ -1,4 +1,4 @@
-package com.app.invoice.service;
+package com.app.service;
 
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -12,9 +12,9 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.app.invoice.dao.UserDao;
-import com.app.invoice.entity.AuthenticateObject;
-import com.app.invoice.entity.User;
+import com.app.dao.UserDao;
+import com.app.entity.AuthenticateObject;
+import com.app.entity.User;
 
 import net.bytebuddy.implementation.bytecode.Throw;
 

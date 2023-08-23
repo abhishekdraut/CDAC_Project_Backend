@@ -1,8 +1,10 @@
-package com.app.invoice.entity;
+package com.app.entity;
+
 
 public class AuthenticateObject {
 	private String username;
 	private String password;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -24,7 +26,4 @@ public class AuthenticateObject {
 	public String toString() {
 		return "AuthenticateObject [username=" + username + ", password=" + password + "]";
 	}
-	
-	
-	
 }
