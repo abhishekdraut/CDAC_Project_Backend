@@ -44,9 +44,9 @@ public class Invoice {
     @JoinColumn(name = "client_id")
     private Client client;
     
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+//    @ManyToOne
+//    @JoinColumn(name = "product_id")
+//    private Product product;
     
     
     @OneToMany(mappedBy = "invoice")
@@ -127,13 +127,13 @@ public class Invoice {
 		this.client = client;
 	}
 
-	public Product getProduct_id() {
-		return product;
-	}
-
-	public void setProduct_id(Product product_id) {
-		this.product = product_id;
-	}
+//	public Product getProduct_id() {
+//		return product;
+//	}
+//
+//	public void setProduct_id(Product product_id) {
+//		this.product = product_id;
+//	}
 
 	public List<Payment> getPayment() {
 		return payment;
@@ -169,7 +169,7 @@ public class Invoice {
 		this.client_name = client_name;
 		this.status = status;
 		this.client = client;
-		this.product = product;
+//		this.product = product;
 		this.payment = payment;
 	}
 
@@ -180,7 +180,7 @@ public class Invoice {
 		return "Invoice [invoice_id=" + invoice_id + ", invoice_recurring_cycle=" + invoice_recurring_cycle
 				+ ", issue_date=" + issue_date + ", due_date=" + due_date + ", amount_total=" + amount_total
 				+ ", amount_paid=" + amount_paid + ", amount_due=" + amount_due + ", client_name=" + client_name
-				+ ", client=" + client + ", product=" + product + ", payment=" + payment + "]";
+				+ ", client=" + client + ", payment=" + payment + "]";
 	}
     
     

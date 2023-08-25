@@ -74,4 +74,18 @@ public class ClientController {
 		}
 
 	}
+	@GetMapping("/searchClient/{id}/{str}")
+	public ResponseEntity<?> searchClientByName(@PathVariable int id,@PathVariable String str) {
+		try {
+		
+			return new ResponseEntity<List<Client>>(clientService.searchClientByName(id,str), HttpStatus.OK);
+		} catch (EntityNotFoundException e) {
+			return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>("Error occured", HttpStatus.BAD_REQUEST);
+		}
+
+	}
+	
 }

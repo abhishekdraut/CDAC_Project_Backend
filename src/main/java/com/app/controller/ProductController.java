@@ -2,11 +2,14 @@ package com.app.controller;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.app.entity.Client;
 import com.app.entity.Product;
 import com.app.service.ProductService;
 
@@ -56,5 +59,19 @@ public class ProductController {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
+    @CrossOrigin("http://localhost:3000")
+    @GetMapping("/searchProduct/{str}")
+	public ResponseEntity<?> searchProductByName(@PathVariable String str) {
+		try {
+	
+			return new ResponseEntity<List<Product>>(productService.searchProductByName(str), HttpStatus.OK);
+		} catch (EntityNotFoundException e) {
+			return new ResponseEntity<>("Not Found", HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return new ResponseEntity<>("Error occured", HttpStatus.BAD_REQUEST);
+		}
+
+	}
 }
 

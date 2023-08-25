@@ -35,4 +35,7 @@ public class ClientService {
 	public List<Client> getClientByAdminId(int id) throws EntityNotFoundException{
 		return clientRepository.getClientByAdminId(id);
 	}
+	public List<Client> searchClientByName(int id,String str) throws EntityNotFoundException{
+		return clientRepository.searchClientByName(id,str);
+	}
 }

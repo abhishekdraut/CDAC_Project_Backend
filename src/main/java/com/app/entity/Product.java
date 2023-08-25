@@ -14,7 +14,7 @@ public class Product {
     @Column(name = "product_id")
     private int product_id;
 	
-	@Column(name = "product_image", nullable = false)
+	@Column(name = "product_image")
 	private String product_image;
 	
 	@Column(name = "product_name", nullable = false)
@@ -26,9 +26,9 @@ public class Product {
 	@Column(name = "product_price", nullable = false)
 	private int product_price;
 	
-	@OneToMany(mappedBy = "product")
-	@JsonIgnore
-    private List<Invoice> invoices;
+//	@OneToMany(mappedBy = "product")
+//	@JsonIgnore
+//    private List<Invoice> invoices;
 
 	public int getProduct_id() {
 		return product_id;
@@ -70,13 +70,13 @@ public class Product {
 		this.product_price = product_price;
 	}
 
-	public List<Invoice> getInvoices() {
-		return invoices;
-	}
-
-	public void setInvoices(List<Invoice> invoices) {
-		this.invoices = invoices;
-	}
+//	public List<Invoice> getInvoices() {
+//		return invoices;
+//	}
+//
+//	public void setInvoices(List<Invoice> invoices) {
+//		this.invoices = invoices;
+//	}
 
 	public Product(int product_id, String product_image, String product_name, String product_category,
 			int product_price, List<Invoice> invoices) {
@@ -86,7 +86,7 @@ public class Product {
 		this.product_name = product_name;
 		this.product_category = product_category;
 		this.product_price = product_price;
-		this.invoices = invoices;
+//		this.invoices = invoices;
 	}
 	
 	public Product() {}
@@ -95,7 +95,7 @@ public class Product {
 	public String toString() {
 		return "Product [product_id=" + product_id + ", product_image=" + product_image + ", product_name="
 				+ product_name + ", product_category=" + product_category + ", product_price=" + product_price
-				+ ", invoices=" + invoices + "]";
+				 + "]";
 	}
 	
 	

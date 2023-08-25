@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "payment")
 public class Payment {
@@ -28,10 +30,12 @@ public class Payment {
 	    private String client_name;
 	    
 	    @ManyToOne
+	   
 	    @JoinColumn(name = "invoice_id")
 	    private Invoice invoice;
 	    
 	    @ManyToOne
+	    
 	    @JoinColumn(name = "client_id")
 	    private Client client;
 

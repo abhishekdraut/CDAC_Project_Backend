@@ -2,10 +2,13 @@ package com.app.service;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.ProductRepository;
+import com.app.entity.Client;
 import com.app.entity.Product;
 
 @Service
@@ -29,5 +32,8 @@ public class ProductService {
     public void deleteProduct(int id) {
         productRepository.deleteById(id);
     }
+    public List<Product> searchProductByName(String str) throws EntityNotFoundException{
+		return productRepository.searchProductByName(str);
+	}
 }
 

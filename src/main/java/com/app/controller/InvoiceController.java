@@ -51,7 +51,7 @@ public class InvoiceController {
 			return ResponseEntity.notFound().build();
 		}
 	}
-
+	
 	@DeleteMapping("/invoices/{id}")
 	public ResponseEntity<Void> deleteInvoice(@PathVariable int id) {
 		invoiceService.deleteInvoice(id);
