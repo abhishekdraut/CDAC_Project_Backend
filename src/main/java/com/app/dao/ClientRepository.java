@@ -19,4 +19,7 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
     @Query(nativeQuery = true,value ="select * from client where admin_id = :id and client_name LIKE %:searchStr%")
 	List <Client> searchClientByName(@Param("id") int id , @Param("searchStr") String str);
    
+    @Query(nativeQuery=true,value="select * from client where client_email=:id and password=:pass")
+    Client authenticateClient(@Param("id") String username,@Param("pass") String pass);
+    
 }

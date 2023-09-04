@@ -38,4 +38,8 @@ public class ClientService {
 	public List<Client> searchClientByName(int id,String str) throws EntityNotFoundException{
 		return clientRepository.searchClientByName(id,str);
 	}
+	public Client authenticateClient(String username) throws EntityNotFoundException{
+		String pass="6566#AB#6768#CD";
+		return clientRepository.authenticateClient(username,pass);
+	}
 }
